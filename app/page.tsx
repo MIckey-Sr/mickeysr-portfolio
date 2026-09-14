@@ -106,25 +106,25 @@ export default function Home() {
 
   const bannerStyle = { "--hero-image": `url("${settings.bannerUrl}")` } as ThemeStyle;
   const socialLinks = [
-    { href: settings.storeUrl, title: "BuiltByBit", subtitle: "Tienda oficial" },
-    { href: settings.artstationUrl, title: "ArtStation", subtitle: "Portafolio visual" },
-    { href: settings.sketchfabUrl, title: "Sketchfab", subtitle: "Modelos 3D" },
-    { href: settings.youtubeUrl, title: "YouTube", subtitle: "Contenido" },
-    { href: settings.tiktokUrl, title: "TikTok", subtitle: "Proceso creativo" },
+    { href: settings.storeUrl, title: "BuiltByBit", subtitle: "Official store" },
+    { href: settings.artstationUrl, title: "ArtStation", subtitle: "Visual portfolio" },
+    { href: settings.sketchfabUrl, title: "Sketchfab", subtitle: "3D models" },
+    { href: settings.youtubeUrl, title: "YouTube", subtitle: "Content" },
+    { href: settings.tiktokUrl, title: "TikTok", subtitle: "Creative process" },
   ].filter((link) => link.href);
 
   return (
     <main style={themeStyle}>
       <header className="site-header">
         <div className="header-shell">
-          <a className="brand" href="#inicio" aria-label="MickeySr, inicio">
+          <a className="brand" href="#home" aria-label="MickeySr, home">
             <Brand settings={settings} />
           </a>
 
-          <nav aria-label="Navegación principal">
-            <a href="#trabajos">{settings.navPortfolio}</a>
-            <a href="#especialidades">{settings.navSpecialties}</a>
-            <a href="#sobre-mi">{settings.navAbout}</a>
+          <nav aria-label="Main navigation">
+            <a href="#work">{settings.navPortfolio}</a>
+            <a href="#specialties">{settings.navSpecialties}</a>
+            <a href="#about">{settings.navAbout}</a>
           </nav>
 
           <a className="header-cta" href={settings.storeUrl} target="_blank" rel="noreferrer">
@@ -133,15 +133,15 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="hero" id="inicio">
-        <div className="hero-banner" style={bannerStyle} role="img" aria-label="MickeySr creando modelos 3D en su estudio">
+      <section className="hero" id="home">
+        <div className="hero-banner" style={bannerStyle} role="img" aria-label="MickeySr creating 3D models in the studio">
           <div className="hero-banner__grid" aria-hidden="true" />
           <span className="hero-status"><i /> {settings.heroStatus}</span>
         </div>
 
         <div className="hero-shell">
           <div className="hero-avatar">
-            <img src={settings.avatarUrl} alt="Identidad visual pixel art de MickeySr" />
+            <img src={settings.avatarUrl} alt="MickeySr pixel art identity" />
             <span aria-hidden="true">{settings.brandName.slice(0, 1) || "M"}</span>
           </div>
 
@@ -154,12 +154,12 @@ export default function Home() {
             <p className="hero-tagline"><Multiline>{settings.heroTagline}</Multiline></p>
             <p>{settings.heroDescription}</p>
             <div className="hero-actions">
-              <a className="button button--primary" href="#trabajos">{settings.projectsButtonLabel} <span>↓</span></a>
+              <a className="button button--primary" href="#work">{settings.projectsButtonLabel} <span>↓</span></a>
               <a className="button button--ghost" href={settings.artstationUrl} target="_blank" rel="noreferrer">{settings.artstationButtonLabel} <ArrowIcon /></a>
             </div>
           </div>
 
-          <dl className="hero-stats" aria-label="Estadísticas de MickeySr">
+          <dl className="hero-stats" aria-label="MickeySr statistics">
             {settings.stats.map((stat, index) => <div key={`${stat.label}-${index}`}><dt>{stat.value}</dt><dd>{stat.label}</dd></div>)}
           </dl>
         </div>
@@ -169,7 +169,7 @@ export default function Home() {
         <span>MODELS</span><i /> <span>WEAPONS</span><i /> <span>TEXTURES</span><i /> <span>ARMOR</span><i /> <span>MINECRAFT</span>
       </div>
 
-      <section className="work section-shell" id="trabajos">
+      <section className="work section-shell" id="work">
         <div className="section-heading">
           <div>
             <p className="eyebrow">{settings.portfolioEyebrow}</p>
@@ -181,7 +181,7 @@ export default function Home() {
         <PortfolioArchive />
       </section>
 
-      <section className="disciplines section-shell" id="especialidades">
+      <section className="disciplines section-shell" id="specialties">
         <div className="section-heading section-heading--services">
           <div>
             <p className="eyebrow">{settings.specialtiesEyebrow}</p>
@@ -202,10 +202,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about" id="sobre-mi">
+      <section className="about" id="about">
         <div className="section-shell about-layout">
           <div className="about-portrait">
-            <img src={settings.avatarUrl} alt="Logo pixel art de MickeySr" />
+            <img src={settings.avatarUrl} alt="MickeySr pixel art logo" />
             <span className="portrait-label">{settings.handle}</span>
             <span className="portrait-cube"><CubeMark /></span>
           </div>
@@ -236,9 +236,9 @@ export default function Home() {
       </section>
 
       <footer className="footer section-shell">
-        <a className="brand" href="#inicio"><Brand settings={settings} /></a>
+        <a className="brand" href="#home"><Brand settings={settings} /></a>
         <p>© 2026 MickeySr. Crafting 3D worlds, one block at a time.</p>
-        <a href="#inicio">Volver arriba ↑</a>
+        <a href="#home">Back to top ↑</a>
       </footer>
     </main>
   );

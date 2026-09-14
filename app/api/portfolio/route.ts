@@ -14,7 +14,7 @@ const sampleProjects = {
     externalUrl: "",
     publishedAt: "",
     tags: ["Set"],
-    description: "Colección completa de armas, herramientas, armadura y objetos inspirados en el universo de Anubis.",
+    description: "A complete collection of weapons, tools, armor, and items inspired by the Anubis universe.",
     assets: [{ id: "sample-anubis-cover", type: "image", imageUrl: "/project-anubis.jpg", title: "Anubis Ritual Ensemble" }],
   },
   soulReaper: {
@@ -24,7 +24,7 @@ const sampleProjects = {
     externalUrl: "",
     publishedAt: "",
     tags: ["Weapon"],
-    description: "Tres variantes cromáticas con equipo, armas y una silueta reconocible.",
+    description: "Three color variants with equipment, weapons, and a recognizable silhouette.",
     assets: [{ id: "sample-soul-reaper-cover", type: "image", imageUrl: "/project-soul-reaper.jpg", title: "Soul Reaper" }],
   },
   cosmicShadow: {
@@ -34,7 +34,7 @@ const sampleProjects = {
     externalUrl: "",
     publishedAt: "",
     tags: ["Weapon"],
-    description: "Colección compacta de estética cósmica, energía azul y acabado voxel.",
+    description: "A compact collection with a cosmic aesthetic, blue energy, and a voxel finish.",
     assets: [{ id: "sample-cosmic-shadow-cover", type: "image", imageUrl: "/project-cosmic-shadow.jpg", title: "Cosmic Shadow" }],
   },
 };
@@ -156,7 +156,7 @@ async function sanityPortfolio() {
       const categoryId = text(category._id);
       return {
         id: categoryId,
-        title: text(category.title) || "Sin título",
+        title: text(category.title) || "Untitled",
         position: number(category.position),
         description: text(category.description),
         projects: projects
@@ -175,7 +175,7 @@ async function sanityPortfolio() {
 
             return {
               id: text(project._id),
-              title: text(project.title) || "Proyecto sin título",
+              title: text(project.title) || "Untitled project",
               coverUrl,
               externalUrl: text(project.externalUrl),
               publishedAt: text(project.publishedAt),

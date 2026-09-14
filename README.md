@@ -1,6 +1,6 @@
 # MickeySr Portfolio
 
-Portafolio de MickeySr enfocado en modelos 3D, armas, armaduras, colecciones y recursos visuales para Minecraft.
+Official portfolio for MickeySr, focused on 3D models, weapons, armor, collections, and visual resources for Minecraft.
 
 ## Stack
 
@@ -11,41 +11,41 @@ Portafolio de MickeySr enfocado en modelos 3D, armas, armaduras, colecciones y r
 - Sketchfab
 - Cloudflare Pages
 
-## Estructura
+## Structure
 
-El contenido principal del portafolio se gestiona desde Sanity y se presenta en galerías organizadas por categorías. Los proyectos pueden incluir imágenes, descripciones, etiquetas, enlaces externos y contenido 3D.
+The main portfolio content is managed through Sanity and displayed in galleries organized by category. Projects can include images, descriptions, tags, external links, and 3D content.
 
-La integración con Sketchfab permite complementar las galerías con modelos interactivos, mientras que Cloudflare Pages se utiliza para la publicación del sitio.
+Sketchfab integration adds interactive models to the portfolio, while Cloudflare Pages is used for deployment.
 
-## Desarrollo
+## Development
 
 ```bash
 npm install
 npm run dev
 ```
 
-Build de producción:
+Production build:
 
 ```bash
 npm run build
 ```
 
-Build preparado para Cloudflare Pages:
+Cloudflare Pages build:
 
 ```bash
 npm run build:pages
 ```
 
-## Administración de contenido
+## Content Management
 
-El Studio de Sanity está disponible en:
+Sanity Studio is available at:
 
 ```text
 /studio
 ```
 
-Desde ahí se pueden administrar proyectos, categorías y la configuración visual del portafolio sin modificar directamente el código del sitio.
+Projects, categories, and visual settings can be managed from the Studio without directly editing the site code.
 
-## Despliegue
+## Deployment
 
-La configuración recomendada para Cloudflare Pages se encuentra en `CLOUDFLARE-PAGES.md`.
+The recommended Cloudflare Pages configuration is documented in `CLOUDFLARE-PAGES.md`.

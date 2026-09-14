@@ -1,15 +1,15 @@
-# Publicar MickeySr en Cloudflare Pages
+# Deploying MickeySr to Cloudflare Pages
 
-El proyecto ya genera una salida compatible con Cloudflare Pages y conserva las rutas dinámicas del portafolio y del Studio.
+The project generates output compatible with Cloudflare Pages while preserving the portfolio and Studio dynamic routes.
 
-## Configuración del proyecto Pages
+## Pages project configuration
 
-- Proyecto: `mickeysr`
-- Rama de producción: `main`
-- Comando de compilación: `npm run build:pages`
-- Directorio de salida: `dist/pages`
-- Versión de Node recomendada: `22`
+- Project: `mickeysr`
+- Production branch: `main`
+- Build command: `npm run build:pages`
+- Output directory: `dist/pages`
+- Recommended Node version: `22`
 
-Conecta el repositorio desde **Workers & Pages → Create application → Pages → Connect to Git**. Después de la primera publicación, cada cambio enviado a `main` se volverá a desplegar automáticamente.
+Connect the repository from **Workers & Pages → Create application → Pages → Connect to Git**. After the first deployment, every change pushed to `main` will be deployed automatically.
 
-Los cambios de contenido hechos en `/studio` no necesitan una nueva compilación: el sitio consulta Sanity cada 60 segundos. Para que el Studio funcione, agrega la URL final `https://mickeysr.pages.dev` como origen CORS en Sanity y activa **Allow credentials**.
+Content changes made in `/studio` do not require a new build: the site checks Sanity every 60 seconds. For the Studio to work correctly, add the final `https://mickeysr.pages.dev` URL as a CORS origin in Sanity and enable **Allow credentials**.

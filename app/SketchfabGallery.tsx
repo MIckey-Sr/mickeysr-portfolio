@@ -32,7 +32,7 @@ function thumbnailFor(model: SketchfabModel) {
 }
 
 function formattedDate(value: string) {
-  return new Intl.DateTimeFormat("es", { month: "short", year: "numeric" }).format(new Date(value));
+  return new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(new Date(value));
 }
 
 export default function SketchfabGallery() {
@@ -112,8 +112,8 @@ export default function SketchfabGallery() {
   if (models.length === 0) {
     return (
       <div className="sketchfab-error">
-        <p>No se pudo cargar la galería en este momento.</p>
-        <a href="https://sketchfab.com/mickeysr/models" target="_blank" rel="noreferrer">Ver modelos en Sketchfab ↗</a>
+        <p>The gallery could not be loaded right now.</p>
+        <a href="https://sketchfab.com/mickeysr/models" target="_blank" rel="noreferrer">View models on Sketchfab ↗</a>
       </div>
     );
   }
@@ -121,11 +121,11 @@ export default function SketchfabGallery() {
   return (
     <>
       <div className={`live-gallery-status${failed ? " is-warning" : ""}`} aria-live="polite">
-        <span><i /> {failed ? "No se pudo completar la última revisión" : "Sincronización automática activa"}</span>
+        <span><i /> {failed ? "The latest check could not be completed" : "Automatic synchronization active"}</span>
         <div className="gallery-sync-actions">
-          <small>{models.length} modelos · última revisión {lastChecked ? lastChecked.toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" }) : "pendiente"}</small>
+          <small>{models.length} models · last checked {lastChecked ? lastChecked.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" }) : "pending"}</small>
           <button className="gallery-refresh" type="button" onClick={() => void refreshModels()} disabled={refreshing}>
-            {refreshing ? "Comprobando…" : "Actualizar ahora"} <b aria-hidden="true">↻</b>
+            {refreshing ? "Checking…" : "Refresh now"} <b aria-hidden="true">↻</b>
           </button>
         </div>
       </div>
@@ -137,11 +137,11 @@ export default function SketchfabGallery() {
 
           return (
             <article className="sketchfab-card" key={model.uid}>
-              <button className="sketchfab-card__main" type="button" onClick={() => setSelected(model)} aria-label={`Explorar ${model.name} en 3D dentro del portafolio`}>
+              <button className="sketchfab-card__main" type="button" onClick={() => setSelected(model)} aria-label={`Explore ${model.name} in 3D inside the portfolio`}>
                 <span className="sketchfab-card__image">
-                  {thumbnail && <img src={thumbnail} alt={`Modelo 3D ${model.name} de MickeySr`} loading={index > 5 ? "lazy" : "eager"} />}
+                  {thumbnail && <img src={thumbnail} alt={`${model.name} 3D model by MickeySr`} loading={index > 5 ? "lazy" : "eager"} />}
                   <span className="sketchfab-card__number">{String(index + 1).padStart(2, "0")}</span>
-                  <span className="sketchfab-card__view">EXPLORAR 3D</span>
+                  <span className="sketchfab-card__view">EXPLORE 3D</span>
                 </span>
                 <span className="sketchfab-card__copy">
                   <span className="sketchfab-tags">
@@ -150,12 +150,12 @@ export default function SketchfabGallery() {
                   <strong>{model.name}</strong>
                   <span className="sketchfab-card__meta">
                     <span>{formattedDate(model.publishedAt)}</span>
-                    <span>{model.viewCount} vistas</span>
+                    <span>{model.viewCount} views</span>
                     <span>{model.likeCount} likes</span>
                   </span>
                 </span>
               </button>
-              <a className="source-icon source-icon--sf" href={model.viewerUrl} target="_blank" rel="noreferrer" aria-label={`Abrir ${model.name} en Sketchfab`} title="Abrir en Sketchfab">
+              <a className="source-icon source-icon--sf" href={model.viewerUrl} target="_blank" rel="noreferrer" aria-label={`Open ${model.name} on Sketchfab`} title="Open on Sketchfab">
                 <span>SF</span><b>↗</b>
               </a>
             </article>
@@ -164,21 +164,21 @@ export default function SketchfabGallery() {
       </div>
 
       {selected && (
-        <div className="internal-viewer internal-viewer--sketchfab" role="dialog" aria-modal="true" aria-label={`Visor 3D de ${selected.name}`} onMouseDown={(event) => {
+        <div className="internal-viewer internal-viewer--sketchfab" role="dialog" aria-modal="true" aria-label={`${selected.name} 3D viewer`} onMouseDown={(event) => {
           if (event.target === event.currentTarget) setSelected(null);
         }}>
           <div className="internal-viewer__panel">
             <header className="internal-viewer__header">
               <div><span>SKETCHFAB · INTERACTIVE 3D</span><h3>{selected.name}</h3></div>
               <div className="internal-viewer__actions">
-                <a className="source-icon source-icon--sf" href={selected.viewerUrl} target="_blank" rel="noreferrer" aria-label="Abrir modelo original en Sketchfab"><span>SF</span><b>↗</b></a>
-                <button type="button" onClick={() => setSelected(null)} aria-label="Cerrar visor 3D">×</button>
+                <a className="source-icon source-icon--sf" href={selected.viewerUrl} target="_blank" rel="noreferrer" aria-label="Open original model on Sketchfab"><span>SF</span><b>↗</b></a>
+                <button type="button" onClick={() => setSelected(null)} aria-label="Close 3D viewer">×</button>
               </div>
             </header>
             <div className="sketchfab-embed">
               <iframe
                 src={`https://sketchfab.com/models/${selected.uid}/embed?autostart=1&ui_theme=dark`}
-                title={`Modelo 3D ${selected.name}`}
+                title={`${selected.name} 3D model`}
                 allow="autoplay; fullscreen; xr-spatial-tracking"
                 allowFullScreen
               />
